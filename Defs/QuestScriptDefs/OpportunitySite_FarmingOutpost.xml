@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <QuestScriptDef ParentName="Base_WorkSiteExpanded">
+    <defName>OpportunitySite_FarmingOutpost</defName>
+    
+    <questNameRules>
+      <rulesStrings>
+        <li>questName(isFirstQuest==false)->The [adjective] [farmType]</li>
+        <li>questName(isFirstQuest==false)->[adjective] [farmType]</li>
+        <li>questName(isFirstQuest==false)->[farmType] [detected]</li>
+        <li>questName(isFirstQuest==false)->[enemyFaction_name]'s [farmType]</li>
+        <li>questName(isFirstQuest==false)->[adjective] [cropType] Farm</li>
+        <li>adjective->Fertile</li>
+        <li>adjective->Prosperous</li>
+        <li>adjective->Remote</li>
+        <li>adjective->Hidden</li>
+        <li>adjective->Defended</li>
+        <li>adjective->Bountiful</li>
+        <li>adjective->Lush</li>
+        <li>farmType->Farm</li>
+        <li>farmType->Homestead</li>
+        <li>farmType->Settlement</li>
+        <li>farmType->Agricultural Outpost</li>
+        <li>farmType->Plantation</li>
+        <li>farmType->Ranch</li>
+        <li>cropType->Corn</li>
+        <li>cropType->Rice</li>
+        <li>cropType->Potato</li>
+        <li>cropType->Haygrass</li>
+        <li>detected->detected</li>
+        <li>detected->discovered</li>
+        <li>detected->nearby</li>
+        <li>detected->located</li>
+        <li>detected->found</li>
+      </rulesStrings>
+    </questNameRules>
+    
+    <questDescriptionRules>
+      <rulesStrings>
+        
+        <li>questDescription(isFirstQuest==false)->[discoveryMethod] a [siteType] near [map_definite]. [intelReport][factionDescriptor]\n\n[factionWarning]\n\n[rewardHint]</li>
+        
+        
+        <li>siteType->farming settlement</li>
+        <li>siteType->agricultural outpost</li>
+        <li>siteType->farm compound</li>
+        <li>siteType->homestead</li>
+        <li>siteType->plantation</li>
+        <li>siteType->ranch</li>
+        
+        
+        <li>intelReport->The settlement is operated by [enemyFaction_name] and appears to have substantial food stockpiles.</li>
+        <li>intelReport->Rumors suggest many fields here belong to [enemyFaction_name], with recent significant harvests.</li>
+        <li>intelReport->[enemyFaction_name] has established this agricultural operation. Livestock and crops are visible from distance.</li>
+        <li>intelReport->The farm belongs to [enemyFaction_name]. Their fields are irrigated and well maintained.</li>
+        <li>intelReport->Research indicates [enemyFaction_name] uses this site for food production. They likely have meals and raw ingredients.</li>
+        
+        
+        <li>rewardHint->Raiding would provide substantial food supplies and equipment.</li>
+        <li>rewardHint->A successful assault could yield crops, preserved food, and tools.</li>
+        <li>rewardHint->Their harvest stores and livestock could feed your colony.</li>
+        <li>rewardHint->Eliminating the defenders would allow you to claim their food stockpiles.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <li Class="QuestNode_SubScript">
+          <def>Util_GetDefaultRewardValueFromPoints</def>
+        </li>
+        <li Class="QuestNode_SubScript">
+          <def>Util_AdjustPointsForDistantFight</def>
+        </li>
+        <li Class="MiningOutpost.QuestNode_GetMapFallback" />
+		
+        
+        <li Class="MiningOutpost.QuestNode_GetMiningFaction">
+          <storeAs>enemyFaction</storeAs>
+          <storeTemporaryAs>faction_temporary</storeTemporaryAs>
+          <storeCorporateDescAs>factionDescriptor</storeCorporateDescAs>
+          <storeColoredNameAs>coloredFactionName</storeColoredNameAs>
+          <siteType>Farming</siteType>
+        </li>
+
+        
+        <li Class="MiningOutpost.QuestNode_GetFarmingSiteTile">
+          <storeAs>siteTile</storeAs>
+          <minDistance>3</minDistance>
+          <maxDistance>28</maxDistance>
+        </li>
+		
+
+        <li Class="QuestNode_AddToList">
+          <name>sitePartDefs</name>
+          <value>FarmingOutpost</value>
+        </li>
+
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$enemyFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+
+        <li Class="QuestNode_GenerateSite">
+          <sitePartsParams>$sitePartsParams</sitePartsParams>
+          <tile>$siteTile</tile>
+          <faction>$enemyFaction</faction>
+          <storeAs>site</storeAs>
+        </li>
+
+        <li Class="QuestNode_SpawnWorldObjects">
+          <worldObjects>$site</worldObjects>
+        </li>
+
+        
+        <li Class="QuestNode_WorldObjectTimeout">
+          <worldObject>$site</worldObject>
+          <isQuestTimeout>true</isQuestTimeout>
+          <delayTicks>$(randInt(15,30)*60000)</delayTicks>
+          <inSignalDisable>site.MapGenerated</inSignalDisable>
+          <destroyOnCleanup>true</destroyOnCleanup>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>Quest expired: [resolvedQuestName]</label>
+                <text>The farming settlement operated by [enemyFaction_name] has been abandoned. The quest [resolvedQuestName] has expired.</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        
+        <li Class="QuestNode_Signal">
+          <inSignal>site.Destroyed</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>Quest failed: [resolvedQuestName]</label>
+                <text>After being discovered, the farmers from [enemyFaction_name] have fled with their supplies. The quest [resolvedQuestName] has ended.</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        
+        <li Class="QuestNode_Signal">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+                <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+              </li>
+              <li Class="QuestNode_CampLootReward" />
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_End">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+        <li Class="QuestNode_NoWorldObject">
+          <worldObject>$site</worldObject>
+          <node Class="QuestNode_End">
+            <outcome>Fail</outcome>
+          </node>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>

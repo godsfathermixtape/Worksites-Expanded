@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  
+  <GenStepDef>
+    <defName>MiningOutpost_Structure</defName>
+    <linkWithSite>MiningOutpost</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+		<li>IndustrialOutpost_MiningSite_Layout01</li>
+		<li>IndustrialOutpost_MiningSite_Layout02</li>
+		<li>IndustrialOutpost_MiningSite_Layout03</li>
+		<li>IndustrialOutpost_MiningSite_Layout04</li>
+		<li>IndustrialOutpost_MiningSite_Layout05</li>
+		<li>IndustrialOutpost_MiningSite_Layout06</li>
+		<li>IndustrialOutpost_MiningSite_Layout07</li>
+		<li>IndustrialOutpost_MiningSite_Layout08</li>
+		<li>IndustrialOutpost_MiningSite_Layout09</li>
+		<li>IndustrialOutpost_MiningSite_Layout10</li>
+      </structureLayoutDefs>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+  
+  <GenStepDef>
+    <defName>MiningOutpost_Loot</defName>
+    <linkWithSite>MiningOutpost</linkWithSite>
+    <order>455</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_MiningOutpostLoot">
+    </genStep>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>MiningOutpost_UnforbidItems</defName>
+    <linkWithSite>MiningOutpost</linkWithSite>
+    <order>458</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_UnforbidAllItems" />
+  </GenStepDef>
+
+  
+	<GenStepDef>
+	  <defName>MiningOutpost_Enemies_Custom</defName>
+	  <linkWithSite>MiningOutpost</linkWithSite>
+	  <order>800</order>
+	  <genStep Class="MiningOutpost.GenStep_EnemiesSpawns">
+		<defaultPointsRange>800~1500</defaultPointsRange>
+		<pointMultiplier>1.2</pointMultiplier>
+	  </genStep>
+	</GenStepDef>
+	<GenStepDef>
+  <defName>MiningOutpost_Workers_Mining</defName>
+  <linkWithSite>MiningOutpost</linkWithSite> 
+  <order>810</order>
+  <genStep Class="MiningOutpost.GenStep_WorkerSpawns">
+    <minerKind>MiningOutpost_Miner</minerKind>
+    <haulerKind>MiningOutpost_Hauler</haulerKind>
+    </genStep>
+</GenStepDef>
+
+</Defs>

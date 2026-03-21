@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  
+  <HediffDef>
+    <defName>MiningOutpost_ParleyBetrayal</defName>
+    <label>secretly planning betrayal</label>
+    <description>This pawn is secretly planning to betray the colony.</description>
+    <hediffClass>MiningOutpost.Parley.Hediff_ParleyBetrayal</hediffClass>
+    <defaultLabelColor>(0.8, 0, 0)</defaultLabelColor>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <isBad>true</isBad>
+    <tendable>false</tendable>
+  </HediffDef>
+
+</Defs>

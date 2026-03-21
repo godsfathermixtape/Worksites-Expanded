@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+    <defName>OperatePulseEmitter</defName>
+    <driverClass>MiningOutpost.PulseEmitter.JobDriver_OperatePulseEmitter</driverClass>
+    <reportString>scanning for outposts at TargetA.</reportString>
+    <suspendable>true</suspendable>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>

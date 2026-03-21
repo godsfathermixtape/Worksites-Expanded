@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <GenStepDef MayRequire="OskarPotocki.VanillaVehiclesExpandedTier3">
+    <defName>VehiclesTier3Outpost_Structure</defName>
+    <linkWithSite>VehiclesTier3Outpost</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>IndustrialOutpost_VehicleTier3Site_Layout01</li>
+      </structureLayoutDefs>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef MayRequire="OskarPotocki.VanillaVehiclesExpandedTier3">
+    <defName>VehiclesTier3Outpost_Loot</defName>
+    <linkWithSite>VehiclesTier3Outpost</linkWithSite>
+    <order>455</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_VehiclesTier3OutpostLoot">
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef MayRequire="OskarPotocki.VanillaVehiclesExpandedTier3">
+    <defName>VehiclesTier3Outpost_UnforbidItems</defName>
+    <linkWithSite>VehiclesTier3Outpost</linkWithSite>
+    <order>458</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_UnforbidAllItems" />
+  </GenStepDef>
+
+  <GenStepDef MayRequire="OskarPotocki.VanillaVehiclesExpandedTier3">
+    <defName>VehiclesTier3Outpost_Enemies_Custom</defName>
+    <linkWithSite>VehiclesTier3Outpost</linkWithSite>
+    <order>800</order>
+    <genStep Class="MiningOutpost.GenStep_EnemiesSpawns">
+      <defaultPointsRange>950~1700</defaultPointsRange>
+      <pointMultiplier>1.0</pointMultiplier>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef MayRequire="OskarPotocki.VanillaVehiclesExpandedTier3">
+    <defName>VehiclesTier3Outpost_Workers</defName>
+    <linkWithSite>VehiclesTier3Outpost</linkWithSite>
+    <order>810</order>
+    <genStep Class="MiningOutpost.GenStep_WorkerSpawns">
+      <haulerKind>MiningOutpost_Hauler</haulerKind>
+      <laborerLabel>mechanic</laborerLabel>
+      <laborerCountMin>1</laborerCountMin>
+      <laborerCountMax>3</laborerCountMax>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

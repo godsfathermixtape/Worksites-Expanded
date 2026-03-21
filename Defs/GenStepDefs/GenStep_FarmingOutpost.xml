@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  
+  <GenStepDef>
+    <defName>FarmingOutpost_Structure</defName>
+    <linkWithSite>FarmingOutpost</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>IndustrialOutpost_FarmingSite_Layout01</li>
+		<li>IndustrialOutpost_FarmingSite_Layout02</li>
+		<li>IndustrialOutpost_FarmingSite_Layout03</li>
+		<li>IndustrialOutpost_FarmingSite_Layout04</li>
+		<li>IndustrialOutpost_FarmingSite_Layout05</li>
+		<li>IndustrialOutpost_FarmingSite_Layout06</li>
+		<li>IndustrialOutpost_FarmingSite_Layout07</li>
+		<li>IndustrialOutpost_FarmingSite_Layout08</li>
+		<li>IndustrialOutpost_FarmingSite_Layout09</li>
+		<li>IndustrialOutpost_FarmingSite_Layout10</li>
+      </structureLayoutDefs>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+  
+  <GenStepDef>
+    <defName>FarmingOutpost_Loot</defName>
+    <linkWithSite>FarmingOutpost</linkWithSite>
+    <order>455</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_FarmingOutpostLoot">
+    </genStep>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>FarmingOutpost_UnforbidItems</defName>
+    <linkWithSite>FarmingOutpost</linkWithSite>
+    <order>458</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_UnforbidAllItems" />
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>FarmingOutpost_Animals</defName>
+    <linkWithSite>FarmingOutpost</linkWithSite>
+    <order>460</order> 
+    <genStep Class="MiningOutpost.Loot.GenStep_FarmingOutpostAnimals">
+    </genStep>
+  </GenStepDef>
+
+  
+  <GenStepDef>
+    <defName>FarmingOutpost_Enemies</defName>
+    <linkWithSite>FarmingOutpost</linkWithSite>
+    <order>500</order>
+    <genStep Class="MiningOutpost.GenStep_EnemiesSpawns">
+      <defaultPointsRange>800~1500</defaultPointsRange>
+      <pointMultiplier>1.2</pointMultiplier>
+    </genStep>
+  </GenStepDef>
+  
+  <GenStepDef>
+  <defName>FarmingOutpost_Workers_Farming</defName>
+  <linkWithSite>FarmingOutpost</linkWithSite> <order>810</order>
+  <genStep Class="MiningOutpost.GenStep_WorkerSpawns">
+    <farmerKind>MiningOutpost_Farmer</farmerKind>
+    <haulerKind>MiningOutpost_Hauler</haulerKind>
+  </genStep>
+</GenStepDef>
+
+</Defs>

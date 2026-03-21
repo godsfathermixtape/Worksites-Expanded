@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkGiverDef>
+    <defName>OperatePulseEmitter</defName>
+    <label>operate pulse emitter</label>
+    <giverClass>MiningOutpost.PulseEmitter.WorkGiver_OperatePulseEmitter</giverClass>
+    <workType>Research</workType>
+    <priorityInType>40</priorityInType>
+    <verb>scan</verb>
+    <gerund>scanning at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+      <li>Sight</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+</Defs>

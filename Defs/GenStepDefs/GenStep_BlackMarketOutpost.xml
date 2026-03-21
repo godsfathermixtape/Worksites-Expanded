@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <GenStepDef>
+    <defName>BlackMarketOutpost_Structure</defName>
+    <linkWithSite>BlackMarketOutpost</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>IndustrialOutpost_BlackMarketSite_Layout01</li>
+      </structureLayoutDefs>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>BlackMarketOutpost_Loot</defName>
+    <linkWithSite>BlackMarketOutpost</linkWithSite>
+    <order>455</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_BlackMarketOutpostLoot">
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>BlackMarketOutpost_UnforbidItems</defName>
+    <linkWithSite>BlackMarketOutpost</linkWithSite>
+    <order>458</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_UnforbidAllItems" />
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>BlackMarketOutpost_Enemies_Custom</defName>
+    <linkWithSite>BlackMarketOutpost</linkWithSite>
+    <order>800</order>
+    <genStep Class="MiningOutpost.GenStep_EnemiesSpawns">
+      <defaultPointsRange>800~1500</defaultPointsRange>
+      <pointMultiplier>1.2</pointMultiplier>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>BlackMarketOutpost_Workers</defName>
+    <linkWithSite>BlackMarketOutpost</linkWithSite>
+    <order>810</order>
+    <genStep Class="MiningOutpost.GenStep_BlackMarketWorkerSpawns">
+      <haulerKind>MiningOutpost_Hauler</haulerKind>
+      <laborerLabel>smuggler</laborerLabel>
+      <laborerCountMin>3</laborerCountMin>
+      <laborerCountMax>6</laborerCountMax>
+      <slaveCountMin>2</slaveCountMin>
+      <slaveCountMax>4</slaveCountMax>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

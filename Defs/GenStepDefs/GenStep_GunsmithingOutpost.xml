@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <GenStepDef>
+    <defName>GunsmithingOutpost_Structure</defName>
+    <linkWithSite>GunsmithingOutpost</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>IndustrialOutpost_GunSmithingSite_Layout01</li>
+        <li>IndustrialOutpost_GunSmithingSite_Layout02</li>
+	<li>IndustrialOutpost_GunSmithingSite_Layout03</li>
+	<li>IndustrialOutpost_GunSmithingSite_Layout04</li>
+	<li>IndustrialOutpost_GunSmithingSite_Layout05</li>
+      </structureLayoutDefs>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>GunsmithingOutpost_Loot</defName>
+    <linkWithSite>GunsmithingOutpost</linkWithSite>
+    <order>455</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_GunsmithingOutpostLoot">
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>GunsmithingOutpost_UnforbidItems</defName>
+    <linkWithSite>GunsmithingOutpost</linkWithSite>
+    <order>458</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_UnforbidAllItems" />
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>GunsmithingOutpost_Enemies_Custom</defName>
+    <linkWithSite>GunsmithingOutpost</linkWithSite>
+    <order>800</order>
+    <genStep Class="MiningOutpost.GenStep_EnemiesSpawns">
+      <defaultPointsRange>800~1500</defaultPointsRange>
+      <pointMultiplier>1.2</pointMultiplier>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>GunsmithingOutpost_Workers</defName>
+    <linkWithSite>GunsmithingOutpost</linkWithSite>
+    <order>810</order>
+    <genStep Class="MiningOutpost.GenStep_WorkerSpawns">
+      <haulerKind>MiningOutpost_Hauler</haulerKind>
+      <laborerLabel>lackey</laborerLabel>
+      <laborerCountMin>3</laborerCountMin>
+      <laborerCountMax>6</laborerCountMax>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

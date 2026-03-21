@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <QuestScriptDef ParentName="Base_WorkSiteExpanded">
+    <defName>OpportunitySite_MercenaryOutpost</defName>
+    
+    <questNameRules>
+      <rulesStrings>
+        <li>questName(isFirstQuest==false)->The [adjective] [mercType]</li>
+        <li>questName(isFirstQuest==false)->[adjective] [mercType]</li>
+        <li>questName(isFirstQuest==false)->[mercType] [detected]</li>
+        <li>questName(isFirstQuest==false)->[enemyFaction_name]'s [mercType]</li>
+        <li>questName(isFirstQuest==false)->[adjective] War Camp</li>
+        <li>adjective->Fortified</li>
+        <li>adjective->Hostile</li>
+        <li>adjective->Defended</li>
+        <li>adjective->Armed</li>
+        <li>adjective->Battle-Ready</li>
+        <li>adjective->Entrenched</li>
+        <li>adjective->Militant</li>
+        <li>mercType->Mercenary Camp</li>
+        <li>mercType->War Camp</li>
+        <li>mercType->Military Outpost</li>
+        <li>mercType->Security Base</li>
+        <li>mercType->Guard Post</li>
+        <li>mercType->Barracks</li>
+        <li>detected->detected</li>
+        <li>detected->discovered</li>
+        <li>detected->spotted</li>
+        <li>detected->located</li>
+        <li>detected->identified</li>
+      </rulesStrings>
+    </questNameRules>
+    
+    <questDescriptionRules>
+      <rulesStrings>
+        
+        <li>questDescription(isFirstQuest==false)->[discoveryMethod] a [siteType] near [map_definite]. [intelReport]\n\n[factionWarning]\n\n[rewardHint]</li>
+        
+        
+        <li>siteType->mercenary camp</li>
+        <li>siteType->military outpost</li>
+        <li>siteType->security base</li>
+        <li>siteType->armed encampment</li>
+        <li>siteType->war camp</li>
+        
+        
+        <li>intelReport->The camp is operated by [enemyFaction_name] and houses armed personnel and military supplies.</li>
+        <li>intelReport->[enemyFaction_name] has established this as a forward operating base. Armaments are stockpiled here.</li>
+        <li>intelReport->Intelligence suggests [enemyFaction_name] uses this site to stage military operations. Expect heavy resistance.</li>
+        <li>intelReport->The outpost belongs to [enemyFaction_name]. Patrols and defensive positions suggest professional soldiers are living here.</li>
+        <li>intelReport->Surveillance indicate that [enemyFaction_name] have trained fighters stationed here with high quality equipment.</li>
+        
+        
+        <li>rewardHint->Defeating them would yield weapons, armor, and military supplies.</li>
+        <li>rewardHint->A successful assault could provide high-quality combat gear and ammunition.</li>
+        <li>rewardHint->Their warehouses likely contains weapons and armor.</li>
+        <li>rewardHint->Eliminating the mercenaries would let you claim their military hardware.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <li Class="QuestNode_SubScript">
+          <def>Util_GetDefaultRewardValueFromPoints</def>
+        </li>
+        <li Class="QuestNode_SubScript">
+          <def>Util_AdjustPointsForDistantFight</def>
+        </li>
+        <li Class="MiningOutpost.QuestNode_GetMapFallback" />
+
+        
+        <li Class="MiningOutpost.QuestNode_GetMiningFaction">
+          <storeAs>enemyFaction</storeAs>
+          <storeTemporaryAs>faction_temporary</storeTemporaryAs>
+          <siteType>Mercenary</siteType>
+        </li>
+
+        <li Class="MiningOutpost.QuestNode_UniversalSafeTileFinder">
+          <storeAs>siteTile</storeAs>
+          <minDistance>3</minDistance>
+          <maxDistance>28</maxDistance>
+        </li>
+
+        <li Class="QuestNode_AddToList">
+          <name>sitePartDefs</name>
+          <value>MercOutpost</value>
+        </li>
+
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$enemyFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+
+        <li Class="QuestNode_GenerateSite">
+          <sitePartsParams>$sitePartsParams</sitePartsParams>
+          <tile>$siteTile</tile>
+          <faction>$enemyFaction</faction>
+          <storeAs>site</storeAs>
+        </li>
+
+        <li Class="QuestNode_SpawnWorldObjects">
+          <worldObjects>$site</worldObjects>
+        </li>
+
+        
+        <li Class="QuestNode_WorldObjectTimeout">
+          <worldObject>$site</worldObject>
+          <isQuestTimeout>true</isQuestTimeout>
+          <delayTicks>$(randInt(15,30)*60000)</delayTicks>
+          <inSignalDisable>site.MapGenerated</inSignalDisable>
+          <destroyOnCleanup>true</destroyOnCleanup>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>Quest expired: [resolvedQuestName]</label>
+                <text>The mercenary camp operated by [enemyFaction_name] has moved to a new location. The quest [resolvedQuestName] has expired.</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        
+        <li Class="QuestNode_Signal">
+          <inSignal>site.Destroyed</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>Quest failed: [resolvedQuestName]</label>
+                <text>The mercenaries from [enemyFaction_name] have been reinforced. Re-entering would mean almost certain death. The quest [resolvedQuestName] has ended.</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        
+        <li Class="QuestNode_Signal">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+                <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+              </li>
+              <li Class="QuestNode_CampLootReward" />
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_End">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+        <li Class="QuestNode_NoWorldObject">
+          <worldObject>$site</worldObject>
+          <node Class="QuestNode_End">
+            <outcome>Fail</outcome>
+          </node>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>
