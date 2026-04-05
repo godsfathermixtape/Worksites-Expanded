@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <QuestScriptDef Name="Base_WorkSiteExpanded" Abstract="True">
+    <rootSelectionWeight>1.0</rootSelectionWeight>
+    <randomlySelectable>false</randomlySelectable>
+    <rootMinPoints>0</rootMinPoints>
+    <autoAccept>true</autoAccept>
+    <defaultChallengeRating>2</defaultChallengeRating>
+    
+    
+    <questDescriptionRules>
+      <rulesStrings>
+        
+        <li>discoveryMethod(pulseDetected==false)->Local scouts shared knowledge regarding</li>
+        <li>discoveryMethod(pulseDetected==false)->Reviewing local maps alerted us to the existence of</li>
+        <li>discoveryMethod(pulseDetected==false)->A wandering traveler mentioned</li>
+        <li>discoveryMethod(pulseDetected==false)->Intercepted communications revealed</li>
+        <li>discoveryMethod(pulseDetected==false)->Displaced refugees reported</li>
+        <li>discoveryMethod(pulseDetected==false)->Roadside toll collectors were spotted at</li>
+        <li>discoveryMethod(pulseDetected==false)->A deserter told us the location of</li>
+        <li>discoveryMethod(pulseDetected==false)->Captured personnel revealed</li>
+        <li>discoveryMethod(pulseDetected==false)->A wounded traveler spoke of</li>
+        <li>discoveryMethod(pulseDetected==false)->Guards openly challenge passersby at</li>
+        <li>discoveryMethod(pulseDetected==false)->A drunken drifter let slip the location of</li>
+        <li>discoveryMethod(pulseDetected==false)->Unusual traffic along the road suggests</li>
+        <li>discoveryMethod(pulseDetected==false)->Workers were seen hauling goods at</li>
+        <li>discoveryMethod(pulseDetected==true)->Our pulse emitter detected</li>
+        <li>discoveryMethod(pulseDetected==true)->The pulse emitter's scan revealed</li>
+        <li>discoveryMethod(pulseDetected==true)->The pulse emitter's output have confirmed</li>
+        <li>discoveryMethod(pulseDetected==true)->The emitter returned the location of</li>
+        <li>discoveryMethod(pulseDetected==true)->The pulse we emitted has located</li>
+        <li>discoveryMethod(traderMentioned==true)->A passing trader mentioned</li>
+        <li>discoveryMethod(traderMentioned==true)->A wandering merchant revealed the location of</li>
+        <li>discoveryMethod(traderMentioned==true)->While trading, a caravan driver told us they recently bought wares at</li>
+        <li>discoveryMethod(traderMentioned==true)->A local trader told us they recently completed a trade at</li>
+        <li>discoveryMethod(traderMentioned==true)->A merchant passing through mentioned</li>
+        
+        
+        <li>questDescription(isFirstQuest==true)->[sender_article] [senderColor][sender_label]&lt;/color&gt; has contacted you [contactMethod].\n\n[introText]\n\nYou can raid work sites by locating them on the world map.\n\nIn order to [reason], they are willing to share the location of a [siteType] near [map_definite]. [intelReport][factionDescriptor]\n\n[factionWarning]\n\n[rewardHint]</li>
+
+        <li>senderColor->&lt;color=#6495ED&gt;</li>
+        <li>senderColor->&lt;color=#FFA500&gt;</li>
+        <li>senderColor->&lt;color=#FF4444&gt;</li>
+
+        <li>introText->Megacorporations, local warlords, and colonists use mercenaries and salvaged ultratech to secure their holdings, making them dangerous as adversaries and valuable as spare parts.</li>
+        <li>introText->Offworld corporations, criminal syndicates, and local enclaves control resources and trade routes. Their private armies and weaponry make them dangerous as adversaries and valuable as spare parts.</li>
+        <li>introText->Rival corporations, pirates, and settlers are always competing for territory, wealth, and opportunities. Their military hardware and fortresses make them dangerous as adversaries and valuable as spare parts.</li>
+
+        <li>reason->disrupt a rival faction's operations</li>
+        <li>reason->weaken their competitors and advance their political career</li>
+        <li>reason->climb the corporate ladder by eliminating their rivals</li>
+        <li>reason->simply cause chaos</li>
+
+        <li>factionWarning(faction_temporary==false)->This site is a subsidiary of [enemyFaction_name]. Attacking it will have diplomatic consequences with their faction.</li>
+		<li>factionWarning(faction_temporary==false)->This site is a tributary holding of [enemyFaction_name]. Attacking it will result in diplomatic consequences with their wider domain.</li>
+		<li>factionWarning(faction_temporary==false)->This site belongs to [enemyFaction_name]. Any attack will be an overtly hostile act.</li>
+        <li>factionWarning(faction_temporary==false)->[enemyFaction_name] manage this facility. Any hostile action will be considered an act of war against them.</li>
+        <li>factionWarning(faction_temporary==false)->This operation falls under [enemyFaction_name]'s protection. Raiding it will damage your relationship with them.</li>
+		<li>factionWarning(faction_temporary==false)->This operation runs under charter from [enemyFaction_name]. Raiding it will violate their claims and result in diplomatic consequences.</li>
+        <li>factionWarning(faction_temporary==true)->Since [enemyFaction_name] is just a small, independent group, you can attack them without any broader diplomatic consequences.</li>
+        <li>factionWarning(faction_temporary==true)->[enemyFaction_name] is an independent operation with no larger faction ties. Attacking them will not affect your other relationships.</li>
+        <li>factionWarning(faction_temporary==true)->Intelligence suggests [enemyFaction_name] operates independently. You can engage them without risking broader diplomatic consequences.</li>
+		<li>factionWarning(faction_temporary==true)->[enemyFaction_name] is an unaffiliated local group with no powerful allies. Attacking them carries no wider diplomatic risk.</li>
+		<li>factionWarning(faction_temporary==true)->[enemyFaction_name] is unaffiliated with any larger organization. Any conflict will be treated as a private dispute.</li>
+		<li>factionWarning(faction_temporary==true)->[enemyFaction_name] appears to be operating off the books. Any conflict can be dismissed as an internal loss.</li>
+		<li>factionWarning(faction_temporary==true)->This site is run by a disposable shell organization without any apparent parent backing. Attacking them should not escalate beyond the site itself.</li>
+		<li>factionWarning(faction_temporary==true)->[enemyFaction_name] has no declared interest in this facility. If they are involved, they will deny it.</li>
+		<li>factionWarning(faction_temporary==true)->[enemyFaction_name] is an emerging power with limited resources. The destruction of this site will wipe them out entirely.</li>
+		<li>factionWarning(faction_temporary==true)->[enemyFaction_name] has no secondary holdings. Destroying this site will also destroy their faction.</li>
+		<li>factionWarning(faction_temporary==true)->This is a faction's fragile and final foothold. If it falls, [enemyFaction_name] will disappear with it.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+  </QuestScriptDef>
+</Defs>

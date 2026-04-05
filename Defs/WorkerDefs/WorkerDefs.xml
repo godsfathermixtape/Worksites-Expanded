@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef>
+    <defName>MiningOutpost_WorkFatigue</defName>
+    <label>outpost fatigue</label>
+    <description>This person works long hours for meager pay.</description>
+    <hediffClass>HediffWithComps</hediffClass> <isBad>false</isBad>
+    <defaultLabelColor>(0.6, 0.6, 0.6)</defaultLabelColor>
+    <stages>
+      <li>
+        <statFactors>
+          <MiningSpeed>0.05</MiningSpeed>
+          <PlantWorkSpeed>0.25</PlantWorkSpeed>
+          <MoveSpeed>0.5</MoveSpeed>
+          <DeepDrillingSpeed>0.1</DeepDrillingSpeed>
+          <RestFallRateFactor>1.50</RestFallRateFactor>
+          <MiningYield>0.1</MiningYield>
+		  <PlantHarvestYield>0.1</PlantHarvestYield>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>180000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+  
+
+  <HediffDef>
+    <defName>MiningOutpost_LaborerFatigue</defName>
+    <label>laborer fatigue</label>
+    <description>This person is carrying a heavy load.</description>
+    <hediffClass>HediffWithComps</hediffClass> 
+    <isBad>false</isBad>
+    <defaultLabelColor>(0.6, 0.6, 0.6)</defaultLabelColor>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>0.5</MoveSpeed> 
+          <RestFallRateFactor>1.20</RestFallRateFactor>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>180000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>MiningOutpost_Panic</defName>
+    <label>panicking</label>
+    <description>This person is fleeing from combat.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <defaultLabelColor>(1.0, 0.2, 0.2)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears"><disappearsAfterTicks>5400</disappearsAfterTicks><showRemainingTime>true</showRemainingTime></li>
+    </comps>
+    <stages>
+      <li><statFactors><MoveSpeed>1.20</MoveSpeed></statFactors></li>
+    </stages>
+  </HediffDef>
+
+  <DutyDef>
+    <defName>MiningOutpost_WorkerDuty</defName>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="MiningOutpost.JobGiver_WorkerRouter" />
+        
+        <li Class="MiningOutpost.JobGiver_WanderOutpost">
+          <wanderRadius>24</wanderRadius>
+        </li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <DutyDef>
+    <defName>MiningOutpost_GuardDuty</defName>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="MiningOutpost.JobGiver_MercenaryRouter" />
+        
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>65</targetAcquireRadius>
+          <targetKeepRadius>72</targetKeepRadius>
+        </li>
+        
+        <li Class="MiningOutpost.JobGiver_WanderOutpost">
+          <wanderRadius>24</wanderRadius>
+        </li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <DutyDef>
+    <defName>MiningOutpost_FirefightDuty</defName>
+    <alwaysShowWeapon>true</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_TakeCombatEnhancingDrug" />
+        <li Class="JobGiver_FightFiresNearPoint">
+          <maxDistFromPoint>65</maxDistFromPoint>
+        </li>
+        <li Class="JobGiver_AIDefendPoint">
+          <targetAcquireRadius>35</targetAcquireRadius>
+          <targetKeepRadius>40</targetKeepRadius>
+        </li>
+        <li Class="MiningOutpost.JobGiver_WanderOutpost">
+          <wanderRadius>24</wanderRadius>
+        </li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <PawnKindDef>
+    <defName>MiningOutpost_Miner</defName>
+    <label>outpost miner</label>
+    <race>Human</race>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <combatPower>35</combatPower>
+    <initialWillRange>1~3</initialWillRange>
+    <initialResistanceRange>5~10</initialResistanceRange>
+    <apparelMoney>300~600</apparelMoney>
+	<requiredWorkTags><li>Mining</li></requiredWorkTags>
+    <apparelTags><li>IndustrialBasic</li><li>IndustrialAdvanced</li></apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <weaponTags><li>SimpleGun</li></weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>MiningOutpost_Farmer</defName>
+    <label>outpost farmer</label>
+    <race>Human</race>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <combatPower>35</combatPower>
+    <initialWillRange>1~3</initialWillRange>
+    <initialResistanceRange>5~10</initialResistanceRange>
+    <apparelMoney>300~600</apparelMoney>
+	<requiredWorkTags><li>PlantWork</li></requiredWorkTags>
+    <apparelTags><li>IndustrialBasic</li><li>IndustrialAdvanced</li></apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <weaponTags><li>SimpleGun</li></weaponTags>
+  </PawnKindDef>
+  
+  <PawnKindDef>
+    <defName>MiningOutpost_Hauler</defName>
+    <label>outpost laborer</label>
+    <race>Human</race>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <combatPower>35</combatPower>
+    <initialWillRange>1~3</initialWillRange>
+    <initialResistanceRange>5~10</initialResistanceRange>
+    <apparelMoney>300~600</apparelMoney>
+	<requiredWorkTags><li>ManualDumb</li></requiredWorkTags>
+    <apparelTags><li>IndustrialBasic</li></apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <weaponTags><li>SimpleGun</li></weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>MiningOutpost_Tailor</defName>
+    <label>outpost tailor</label>
+    <race>Human</race>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <combatPower>35</combatPower>
+    <initialWillRange>1~3</initialWillRange>
+    <initialResistanceRange>5~10</initialResistanceRange>
+    <apparelMoney>1000~2000</apparelMoney>
+    <requiredWorkTags><li>ManualDumb</li></requiredWorkTags>
+    <apparelTags><li>IndustrialBasic</li></apparelTags>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+    <itemQuality>Excellent</itemQuality>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <weaponTags><li>SimpleGun</li></weaponTags>
+  </PawnKindDef>
+
+  
+  <PawnKindDef>
+    <defName>MiningOutpost_BlackMarketSlave</defName>
+    <label>slave</label>
+    <race>Human</race>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <combatPower>10</combatPower>
+    <initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>2~5</initialResistanceRange>
+    <apparelMoney>30~120</apparelMoney>
+    <requiredWorkTags><li>ManualDumb</li></requiredWorkTags>
+    <apparelTags><li>IndustrialBasic</li></apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    
+  </PawnKindDef>
+
+  <DutyDef>
+    <defName>MiningOutpost_MedicDuty</defName>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="MiningOutpost.JobGiver_MedicRouter" />
+        
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>65</targetAcquireRadius>
+          <targetKeepRadius>72</targetKeepRadius>
+        </li>
+        
+        <li Class="MiningOutpost.JobGiver_WanderOutpost">
+          <wanderRadius>24</wanderRadius>
+        </li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <PawnKindDef>
+    <defName>OutpostMedic</defName>
+    <label>outpost medic</label>
+    <race>Human</race>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <combatPower>20</combatPower>
+    <initialWillRange>1~3</initialWillRange>
+    <initialResistanceRange>5~10</initialResistanceRange>
+    <apparelMoney>400~700</apparelMoney>
+    <requiredWorkTags><li>Caring</li></requiredWorkTags>
+    <apparelTags><li>IndustrialBasic</li><li>IndustrialAdvanced</li></apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <weaponTags><li>ShortShots</li></weaponTags>
+    <skills>
+      <li>
+        <skill>Medicine</skill>
+        <range>6~12</range>
+      </li>
+    </skills>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>OutpostMedicLeader</defName>
+    <label>outpost medic leader</label>
+    <race>Human</race>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <combatPower>25</combatPower>
+    <initialWillRange>1~3</initialWillRange>
+    <initialResistanceRange>5~10</initialResistanceRange>
+    <apparelMoney>600~1000</apparelMoney>
+    <requiredWorkTags><li>Caring</li></requiredWorkTags>
+    <apparelTags><li>IndustrialBasic</li><li>IndustrialAdvanced</li></apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <weaponTags><li>ShortShots</li></weaponTags>
+    <skills>
+      <li>
+        <skill>Medicine</skill>
+        <range>12~18</range>
+      </li>
+    </skills>
+  </PawnKindDef>
+
+</Defs>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  
+  <GenStepDef>
+    <defName>HomesteadOutpost_Structure</defName>
+    <linkWithSite>HomesteadOutpost</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>IndustrialOutpost_HomesteadSite_Layout01</li>
+        <li>IndustrialOutpost_HomesteadSite_Layout02</li>
+        <li>IndustrialOutpost_HomesteadSite_Layout03</li>
+	</structureLayoutDefs>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+  
+  <GenStepDef>
+    <defName>HomesteadOutpost_Loot</defName>
+    <linkWithSite>HomesteadOutpost</linkWithSite>
+    <order>455</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_HomesteadOutpostLoot">
+    </genStep>
+  </GenStepDef>
+
+  
+  <GenStepDef>
+    <defName>HomesteadOutpost_Animals</defName>
+    <linkWithSite>HomesteadOutpost</linkWithSite>
+    <order>456</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_HomesteadOutpostAnimals" />
+  </GenStepDef>
+
+  
+  <GenStepDef>
+    <defName>HomesteadOutpost_UnforbidItems</defName>
+    <linkWithSite>HomesteadOutpost</linkWithSite>
+    <order>458</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_UnforbidAllItems" />
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>HomesteadOutpost_Enemies</defName>
+    <linkWithSite>HomesteadOutpost</linkWithSite>
+    <order>500</order>
+    <genStep Class="MiningOutpost.GenStep_EnemiesSpawns">
+      <defaultPointsRange>250~500</defaultPointsRange>
+      <pointMultiplier>0.9</pointMultiplier>
+      <lowWealthMultiplier>0.5</lowWealthMultiplier>
+      <wealthScaleLowThreshold>25000</wealthScaleLowThreshold>
+      <wealthScaleHighThreshold>50000</wealthScaleHighThreshold>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>HomesteadOutpost_Workers</defName>
+    <linkWithSite>HomesteadOutpost</linkWithSite>
+    <order>810</order>
+    <genStep Class="MiningOutpost.GenStep_WorkerSpawns">
+      <workerCountOverride>4</workerCountOverride>
+      <workersDefend>false</workersDefend>
+      <weightedWorkerKinds>
+        <li><kindDef>MiningOutpost_Miner</kindDef><weight>3</weight></li>
+        <li><kindDef>MiningOutpost_Farmer</kindDef><weight>3</weight></li>
+        <li><kindDef>MiningOutpost_Hauler</kindDef><weight>2</weight></li>
+        <li><kindDef>OutpostMedic</kindDef><weight>1</weight></li>
+      </weightedWorkerKinds>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

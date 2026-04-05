@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <GenStepDef>
+    <defName>ClothesMakingOutpost_Structure</defName>
+    <linkWithSite>ClothesMakingOutpost</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>IndustrialOutpost_ClothesMakingSite_Layout01</li>
+		<li>IndustrialOutpost_ClothesMakingSite_Layout02</li>
+		<li>IndustrialOutpost_ClothesMakingSite_Layout03</li>
+		<li>IndustrialOutpost_ClothesMakingSite_Layout04</li>
+		<li>IndustrialOutpost_ClothesMakingSite_Layout05</li>
+      </structureLayoutDefs>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>ClothesMakingOutpost_Loot</defName>
+    <linkWithSite>ClothesMakingOutpost</linkWithSite>
+    <order>455</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_ClothesMakingOutpostLoot">
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>ClothesMakingOutpost_UnforbidItems</defName>
+    <linkWithSite>ClothesMakingOutpost</linkWithSite>
+    <order>458</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_UnforbidAllItems" />
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>ClothesMakingOutpost_Enemies_Custom</defName>
+    <linkWithSite>ClothesMakingOutpost</linkWithSite>
+    <order>800</order>
+    <genStep Class="MiningOutpost.GenStep_EnemiesSpawns">
+      <defaultPointsRange>800~1500</defaultPointsRange>
+      <pointMultiplier>1.2</pointMultiplier>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>ClothesMakingOutpost_Workers</defName>
+    <linkWithSite>ClothesMakingOutpost</linkWithSite>
+    <order>810</order>
+    <genStep Class="MiningOutpost.GenStep_WorkerSpawns">
+      <haulerKind>MiningOutpost_Tailor</haulerKind>
+      <laborerCountMin>3</laborerCountMin>
+      <laborerCountMax>6</laborerCountMax>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

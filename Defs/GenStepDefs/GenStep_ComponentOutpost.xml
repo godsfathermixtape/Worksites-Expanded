@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <GenStepDef>
+    <defName>ComponentOutpost_Structure</defName>
+    <linkWithSite>ComponentOutpost</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>IndustrialOutpost_ComponentSite_Layout01</li>
+		<li>IndustrialOutpost_ComponentSite_Layout02</li>
+		<li>IndustrialOutpost_ComponentSite_Layout03</li>
+		<li>IndustrialOutpost_ComponentSite_Layout04</li>
+		<li>IndustrialOutpost_ComponentSite_Layout05</li>
+      </structureLayoutDefs>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>ComponentOutpost_Loot</defName>
+    <linkWithSite>ComponentOutpost</linkWithSite>
+    <order>455</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_ComponentOutpostLoot">
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>ComponentOutpost_UnforbidItems</defName>
+    <linkWithSite>ComponentOutpost</linkWithSite>
+    <order>458</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_UnforbidAllItems" />
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>ComponentOutpost_Enemies_Custom</defName>
+    <linkWithSite>ComponentOutpost</linkWithSite>
+    <order>800</order>
+    <genStep Class="MiningOutpost.GenStep_EnemiesSpawns">
+      <defaultPointsRange>800~1500</defaultPointsRange>
+      <pointMultiplier>1.2</pointMultiplier>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>ComponentOutpost_Workers</defName>
+    <linkWithSite>ComponentOutpost</linkWithSite>
+    <order>810</order>
+    <genStep Class="MiningOutpost.GenStep_WorkerSpawns">
+      <haulerKind>MiningOutpost_Hauler</haulerKind>
+      <laborerLabel>technician</laborerLabel>
+      <laborerCountMin>3</laborerCountMin>
+      <laborerCountMax>6</laborerCountMax>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

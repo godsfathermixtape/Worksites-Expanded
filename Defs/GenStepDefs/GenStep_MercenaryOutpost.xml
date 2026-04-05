@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <GenStepDef>
+    <defName>MercenaryOutpost_Structure</defName>
+    <linkWithSite>MercenaryOutpost</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>IndustrialOutpost_MercenarySite_Layout01</li>
+		<li>IndustrialOutpost_MercenarySite_Layout02</li>
+		<li>IndustrialOutpost_MercenarySite_Layout03</li>
+      </structureLayoutDefs>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>MercenaryOutpost_Loot</defName>
+    <linkWithSite>MercenaryOutpost</linkWithSite>
+    <order>455</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_MercenaryOutpostLoot">
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>MercenaryOutpost_UnforbidItems</defName>
+    <linkWithSite>MercenaryOutpost</linkWithSite>
+    <order>458</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_UnforbidAllItems" />
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>MercenaryOutpost_Enemies_Custom</defName>
+    <linkWithSite>MercenaryOutpost</linkWithSite>
+    <order>800</order>
+    <genStep Class="MiningOutpost.GenStep_EnemiesSpawns">
+      <defaultPointsRange>1200~1900</defaultPointsRange>
+      <pointMultiplier>1.2</pointMultiplier>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>MercenaryOutpost_Workers</defName>
+    <linkWithSite>MercenaryOutpost</linkWithSite>
+    <order>810</order>
+    <genStep Class="MiningOutpost.GenStep_WorkerSpawns">
+      <haulerKind>MiningOutpost_Hauler</haulerKind>
+      <laborerLabel>squire</laborerLabel>
+      <laborerCountMin>3</laborerCountMin>
+      <laborerCountMax>6</laborerCountMax>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

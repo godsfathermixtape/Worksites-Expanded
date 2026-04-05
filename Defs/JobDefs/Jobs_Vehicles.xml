@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <JobDef>
+    <defName>MiningOutpost_HotwireVehicle</defName>
+    <driverClass>MiningOutpost.Vehicles.JobDriver_HotwireVehicle</driverClass>
+    <reportString>hotwiring vehicle.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <suspendable>false</suspendable>
+  </JobDef>
+
+</Defs>

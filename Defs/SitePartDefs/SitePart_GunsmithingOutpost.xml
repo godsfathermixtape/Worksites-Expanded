@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <SitePartDef>
+    <defName>GunsmithingOutpost</defName>
+    <label>gunsmithing outpost</label>
+    <description>A fortified gunsmithing facility. It will expire in time. Until then, you can raid it if you wish.</description>
+    
+    
+    <workerClass>MiningOutpost.SitePartWorker_ExpandedOutpost</workerClass>
+    
+    
+    <siteTexture>World/WorldObjects/Sites/Outpost</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Sites/WorkSite</expandingIconTexture>
+    <applyFactionColorToSiteTexture>true</applyFactionColorToSiteTexture>
+    <showFactionInInspectString>true</showFactionInInspectString>
+    
+    
+    <requiresFaction>true</requiresFaction>
+    <considerEnteringAsAttack>true</considerEnteringAsAttack>
+    <gravShipsCanLandOn>true</gravShipsCanLandOn>
+
+
+    <approachOrderString>Attack {0}</approachOrderString>
+    <approachingReportString>Attacking {0}.</approachingReportString>
+    
+    
+    <wantsThreatPoints>true</wantsThreatPoints>
+    <minThreatPoints>350</minThreatPoints>
+    
+    
+    <tags>
+      <li>GunsmithingOutpost</li>
+    </tags>
+    
+  </SitePartDef>
+
+</Defs>

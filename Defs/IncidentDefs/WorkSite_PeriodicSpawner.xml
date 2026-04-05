@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <IncidentDef>
+    <defName>WorkSite_PeriodicSpawner</defName>
+    <label>work site detected</label>
+    <category>GiveQuest</category>
+    <workerClass>MiningOutpost.IncidentWorker_GiveWorkSiteQuest</workerClass>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <baseChance>0</baseChance>
+    <earliestDay>999</earliestDay>
+    <minRefireDays>999</minRefireDays>
+  </IncidentDef>
+
+</Defs>

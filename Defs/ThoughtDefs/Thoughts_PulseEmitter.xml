@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>MiningOutpost_PulseEmitterFrustrated</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>4</stackLimit>
+    <stages>
+      <li>
+        <label>frustrated by pulse emitter</label>
+        <description>The pulse emitter is hard to use like this and it's making me feel frustrated.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>MiningOutpost_PulseEmitterExhilarated</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>pulse emitter is blazing fast</label>
+        <description>The pulse emitter is so fast!</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

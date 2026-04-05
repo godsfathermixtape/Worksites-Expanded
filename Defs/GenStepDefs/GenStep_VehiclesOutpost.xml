@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <GenStepDef MayRequire="OskarPotocki.VanillaVehiclesExpanded">
+    <defName>VehiclesOutpost_Structure</defName>
+    <linkWithSite>VehiclesOutpost</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>IndustrialOutpost_VehicleSite_Layout01</li>
+      </structureLayoutDefs>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef MayRequire="OskarPotocki.VanillaVehiclesExpanded">
+    <defName>VehiclesOutpost_Loot</defName>
+    <linkWithSite>VehiclesOutpost</linkWithSite>
+    <order>455</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_VehiclesOutpostLoot">
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef MayRequire="OskarPotocki.VanillaVehiclesExpanded">
+    <defName>VehiclesOutpost_UnforbidItems</defName>
+    <linkWithSite>VehiclesOutpost</linkWithSite>
+    <order>458</order>
+    <genStep Class="MiningOutpost.Loot.GenStep_UnforbidAllItems" />
+  </GenStepDef>
+
+  <GenStepDef MayRequire="OskarPotocki.VanillaVehiclesExpanded">
+    <defName>VehiclesOutpost_Enemies_Custom</defName>
+    <linkWithSite>VehiclesOutpost</linkWithSite>
+    <order>800</order>
+    <genStep Class="MiningOutpost.GenStep_EnemiesSpawns">
+      <defaultPointsRange>600~950</defaultPointsRange>
+      <pointMultiplier>1.0</pointMultiplier>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef MayRequire="OskarPotocki.VanillaVehiclesExpanded">
+    <defName>VehiclesOutpost_Workers</defName>
+    <linkWithSite>VehiclesOutpost</linkWithSite>
+    <order>810</order>
+    <genStep Class="MiningOutpost.GenStep_WorkerSpawns">
+      <haulerKind>MiningOutpost_Hauler</haulerKind>
+      <laborerLabel>carwasher</laborerLabel>
+      <laborerCountMin>1</laborerCountMin>
+      <laborerCountMax>3</laborerCountMax>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

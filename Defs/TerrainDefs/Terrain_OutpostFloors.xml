@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <TerrainDef ParentName="FloorBase">
+    <defName>WorksiteSmoothed_Sandstone</defName>
+    <label>smooth sandstone</label>
+    <description>Smooth sandstone flooring with clean, sharp edges.</description>
+    <texturePath>Terrain/Surfaces/SmoothStone</texturePath>
+    <renderPrecedence>220</renderPrecedence>
+    <isPaintable>true</isPaintable>
+    <color>(126,104,94)</color>
+    <designationCategory />
+    <statBases>
+      <Beauty>2</Beauty>
+    </statBases>
+  </TerrainDef>
+  <TerrainDef ParentName="FloorBase">
+    <defName>WorksiteSmoothed_Marble</defName>
+    <label>smooth marble</label>
+    <description>Smooth marble flooring with clean, sharp edges.</description>
+    <texturePath>Terrain/Surfaces/SmoothStone</texturePath>
+    <renderPrecedence>220</renderPrecedence>
+    <isPaintable>true</isPaintable>
+    <color>(132,135,132)</color>
+    <designationCategory />
+    <statBases>
+      <Beauty>2</Beauty>
+    </statBases>
+  </TerrainDef>
+  <TerrainDef ParentName="FloorBase">
+    <defName>WorksiteSmoothed_Granite</defName>
+    <label>smooth granite</label>
+    <description>Smooth granite flooring with clean, sharp edges.</description>
+    <texturePath>Terrain/Surfaces/SmoothStone</texturePath>
+    <renderPrecedence>220</renderPrecedence>
+    <isPaintable>true</isPaintable>
+    <color>(105,95,97)</color>
+    <designationCategory />
+    <statBases>
+      <Beauty>2</Beauty>
+    </statBases>
+  </TerrainDef>
+  <TerrainDef ParentName="FloorBase">
+    <defName>WorksiteSmoothed_Limestone</defName>
+    <label>smooth limestone</label>
+    <description>Smooth limestone flooring with clean, sharp edges.</description>
+    <texturePath>Terrain/Surfaces/SmoothStone</texturePath>
+    <renderPrecedence>220</renderPrecedence>
+    <isPaintable>true</isPaintable>
+    <color>(158,153,135)</color>
+    <designationCategory />
+    <statBases>
+      <Beauty>2</Beauty>
+    </statBases>
+  </TerrainDef>
+  <TerrainDef ParentName="FloorBase">
+    <defName>WorksiteSmoothed_Slate</defName>
+    <label>smooth slate</label>
+    <description>Smooth slate flooring with clean, sharp edges.</description>
+    <texturePath>Terrain/Surfaces/SmoothStone</texturePath>
+    <renderPrecedence>220</renderPrecedence>
+    <isPaintable>true</isPaintable>
+    <color>(70,70,70)</color>
+    <designationCategory />
+    <statBases>
+      <Beauty>2</Beauty>
+    </statBases>
+  </TerrainDef>
+
+</Defs>
