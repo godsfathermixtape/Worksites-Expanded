@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  
+  <IncidentDef>
+    <defName>WorkSite_TraderMention</defName>
+    <label>trader mentions a work site</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>MiningOutpost.IncidentWorker_TraderMentionsOutpost</workerClass>
+  </IncidentDef>
+
+</Defs>

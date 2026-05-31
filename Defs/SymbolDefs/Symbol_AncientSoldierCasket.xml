@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <KCSG.SymbolDef>
+    <defName>AncientSoldierCasket_North</defName>
+    <thing>AncientCryptosleepCasket</thing>
+    <rotation>North</rotation>
+    
+    <containPawnKindAnyOf>
+      <li>AncientSoldier</li>
+    </containPawnKindAnyOf>
+    
+    <chanceToContainPawn>1</chanceToContainPawn>
+    
+    <spawnPartOfFaction>false</spawnPartOfFaction>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>AncientSoldierCasket_South</defName>
+    <thing>AncientCryptosleepCasket</thing>
+    <rotation>South</rotation>
+    <containPawnKindAnyOf>
+      <li>AncientSoldier</li>
+    </containPawnKindAnyOf>
+    <chanceToContainPawn>1</chanceToContainPawn>
+    <spawnPartOfFaction>false</spawnPartOfFaction>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>AncientSoldierCasket_East</defName>
+    <thing>AncientCryptosleepCasket</thing>
+    <rotation>East</rotation>
+    <containPawnKindAnyOf>
+      <li>AncientSoldier</li>
+    </containPawnKindAnyOf>
+    <chanceToContainPawn>1</chanceToContainPawn>
+    <spawnPartOfFaction>false</spawnPartOfFaction>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>AncientSoldierCasket_West</defName>
+    <thing>AncientCryptosleepCasket</thing>
+    <rotation>West</rotation>
+    <containPawnKindAnyOf>
+      <li>AncientSoldier</li>
+    </containPawnKindAnyOf>
+    <chanceToContainPawn>1</chanceToContainPawn>
+    <spawnPartOfFaction>false</spawnPartOfFaction>
+  </KCSG.SymbolDef>
+</Defs>

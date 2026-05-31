@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <SitePartDef>
+    <defName>HomesteadOutpost</defName>
+    <label>wilderness homestead</label>
+    <description>A rough homestead in the wilderness. Someone is trying to scratch out a living out here.</description>
+
+    <workerClass>MiningOutpost.SitePartWorker_ExpandedOutpost</workerClass>
+
+    <siteTexture>World/WorldObjects/Sites/Outpost</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Sites/WorkSite</expandingIconTexture>
+    <applyFactionColorToSiteTexture>true</applyFactionColorToSiteTexture>
+    <showFactionInInspectString>true</showFactionInInspectString>
+
+    <requiresFaction>true</requiresFaction>
+    <considerEnteringAsAttack>true</considerEnteringAsAttack>
+    <gravShipsCanLandOn>true</gravShipsCanLandOn>
+
+    <approachOrderString>Attack {0}</approachOrderString>
+    <approachingReportString>Attacking {0}.</approachingReportString>
+
+    <wantsThreatPoints>true</wantsThreatPoints>
+    <minThreatPoints>100</minThreatPoints>
+
+    <tags>
+      <li>HomesteadOutpost</li>
+    </tags>
+
+  </SitePartDef>
+
+</Defs>

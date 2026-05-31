@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>MiningOutpost_HumiliatedEnemy</defName>
+    <durationDays>15</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>parley success</label>
+        <description>We humiliated a weaker faction. It was satisfying to watch them bend the knee.</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>Thought_SweetedenDeal_Tier1</defName>
+    <durationDays>5</durationDays>
+    <nextThought>Thought_SweetedenDeal_Tier1a</nextThought>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>prostrated for a deal</label>
+        <description>I had to ask someone nicely to agree with my terms. It was demeaning.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>Thought_SweetedenDeal_Tier1a</defName>
+    <durationDays>15</durationDays>
+    <lerpMoodToZero>true</lerpMoodToZero>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>prostrated for a deal</label>
+        <description>I still haven't forgotten that I had to ask nicely to press my demands.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>Thought_SweetedenDeal_Tier2</defName>
+    <durationDays>8</durationDays>
+    <nextThought>Thought_SweetedenDeal_Tier2a</nextThought>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>prostrated repeatedly</label>
+        <description>I've been practically crawling around on my knees to beg these people for deals. My pride is taking a serious hit.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+    <ThoughtDef>
+    <defName>Thought_SweetedenDeal_Tier2a</defName>
+    <durationDays>12</durationDays>
+    <lerpMoodToZero>true</lerpMoodToZero>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>prostrated repeatedly</label>
+        <description>I still haven't forgotten that I was practically crawling around on my knees to press my demands.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>Thought_SweetedenDeal_Tier3</defName>
+    <durationDays>12</durationDays>
+    <nextThought>Thought_SweetedenDeal_Tier3a</nextThought>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>groveling constantly</label>
+        <description>I am just a dog.</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+    </stages>
+
+  </ThoughtDef>
+     <ThoughtDef>
+    <defName>Thought_SweetedenDeal_Tier3a</defName>
+    <durationDays>8</durationDays>
+    <lerpMoodToZero>true</lerpMoodToZero>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>groveling constantly</label>
+        <description>I still haven't forgotten that I feel like a dog.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>Thought_SweetedenDeal_Tier4</defName>
+    <durationDays>20</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>utterly submissive</label>
+        <description>I've traded away every last ounce of my self-respect. I want to live inside a hole forever.</description>
+        <baseMoodEffect>-30</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>Thought_CounterParleyHumiliation</defName>
+    <durationDays>10</durationDays>
+    <lerpMoodToZero>true</lerpMoodToZero>
+    <stackLimit>4</stackLimit>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>humiliated by outpost</label>
+        <description>I was humiliated by a weaker faction. I'll never live this down.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>Thought_ParleyFledSortie</defName>
+    <durationDays>6</durationDays>
+    <stackLimit>1</stackLimit>
+	<lerpMoodToZero>true</lerpMoodToZero>
+    <stages>
+      <li>
+        <label>fled ambush</label>
+        <description>We fled from a field battle. Embarrassing.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  
+  <TraderKindDef>
+    <defName>MiningOutpost_OutpostTrader</defName>
+    <label>outpost trader</label>
+    <commonality>0</commonality>
+    <requestable>false</requestable>
+    <tradeCurrency>Silver</tradeCurrency>
+    <stockGenerators>
+      
+      <li Class="StockGenerator_BuyExpensiveSimple" />
+      
+      <li Class="StockGenerator_Category">
+        <categoryDef>ResourcesRaw</categoryDef>
+        <countRange>0~0</countRange>
+      </li>
+      
+      <li Class="StockGenerator_Category">
+        <categoryDef>FoodRaw</categoryDef>
+        <countRange>0~0</countRange>
+      </li>
+      
+      <li Class="StockGenerator_Category">
+        <categoryDef>Textiles</categoryDef>
+        <countRange>0~0</countRange>
+      </li>
+      
+      <li Class="StockGenerator_Category">
+        <categoryDef>Manufactured</categoryDef>
+        <countRange>0~0</countRange>
+      </li>
+      
+      <li Class="StockGenerator_Category">
+        <categoryDef>Medicine</categoryDef>
+        <countRange>0~0</countRange>
+      </li>
+      
+      <li Class="StockGenerator_Category">
+        <categoryDef>Drugs</categoryDef>
+        <countRange>0~0</countRange>
+      </li>
+      
+      <li Class="StockGenerator_Category">
+        <categoryDef>Weapons</categoryDef>
+        <countRange>0~0</countRange>
+      </li>
+      
+      <li Class="StockGenerator_Category">
+        <categoryDef>Apparel</categoryDef>
+        <countRange>0~0</countRange>
+      </li>
+    </stockGenerators>
+  </TraderKindDef>
+
+</Defs>

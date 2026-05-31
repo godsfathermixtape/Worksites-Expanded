@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <QuestScriptDef ParentName="Base_WorkSiteExpanded">
+    <defName>OpportunitySite_ClothesMakingOutpost</defName>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName(isFirstQuest==false)->The [adjective] [clothType]</li>
+        <li>questName(isFirstQuest==false)->[adjective] [clothType]</li>
+        <li>questName(isFirstQuest==false)->[clothType] [detected]</li>
+        <li>questName(isFirstQuest==false)->[enemyFaction_name]'s [clothType]</li>
+        <li>questName(isFirstQuest==false)->[adjective] [fabricType] [clothType]</li>
+        <li>questName(isFirstQuest==false)->The [clothType] of [enemyFaction_name]</li>
+        <li>adjective->Fine</li>
+        <li>adjective->Hidden</li>
+        <li>adjective->Prosperous</li>
+        <li>adjective->Remote</li>
+        <li>adjective->Defended</li>
+        <li>adjective->Busy</li>
+        <li>adjective->Elegant</li>
+        <li>clothType->Tailor Shop</li>
+        <li>clothType->Textile Mill</li>
+        <li>clothType->Clothier</li>
+        <li>clothType->Weaving House</li>
+        <li>clothType->Fashion Workshop</li>
+        <li>clothType->Outfitter</li>
+        <li>fabricType->Silk</li>
+        <li>fabricType->Leather</li>
+        <li>fabricType->Devilstrand</li>
+        <li>detected->detected</li>
+        <li>detected->discovered</li>
+        <li>detected->spotted</li>
+        <li>detected->located</li>
+        <li>detected->found</li>
+      </rulesStrings>
+    </questNameRules>
+
+    <questDescriptionRules>
+      <rulesStrings>
+        
+        <li>questDescription(isFirstQuest==false)->[discoveryMethod] a [siteType] near [map_definite]. [intelReport][factionDescriptor]\n\n[factionWarning]\n\n[rewardHint]</li>
+
+        
+        <li>siteType->textile workshop</li>
+        <li>siteType->tailor shop</li>
+        <li>siteType->weaver's facility</li>
+        <li>siteType->clothier</li>
+        <li>siteType->fashion house</li>
+
+        
+        <li>intelReport->The workshop is operated by [enemyFaction_name] and produces garments and textile goods.</li>
+        <li>intelReport->[enemyFaction_name] has established this site for textile production. Fabric and garments are bought and sold here.</li>
+        <li>intelReport->Intelligence suggests [enemyFaction_name] manufactures clothing here. Looms run day and night, and bales of raw material fill the yards.</li>
+        <li>intelReport->The facility belongs to [enemyFaction_name]. Racks of finished apparel and stacked fabrics suggest skilled tailors work here.</li>
+        <li>intelReport->Surveillance confirms [enemyFaction_name] runs a textile operation at this location. Traders have been seen leaving with bundles of new clothing.</li>
+
+        
+        <li>rewardHint->Defeating them might yield quality apparel, textiles, and leather goods.</li>
+        <li>rewardHint->A successful raid could provide fine garments and bolts of valuable fabric.</li>
+        <li>rewardHint->Their inventory likely contains finished clothing and materials.</li>
+        <li>rewardHint->Eliminating the tailors would let you claim their garment stockpile and weaving equipment.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        
+        <li Class="QuestNode_SubScript">
+          <def>Util_GetDefaultRewardValueFromPoints</def>
+        </li>
+        <li Class="QuestNode_SubScript">
+          <def>Util_AdjustPointsForDistantFight</def>
+        </li>
+        <li Class="MiningOutpost.QuestNode_GetMapFallback" />
+
+        
+        <li Class="MiningOutpost.QuestNode_GetMiningFaction">
+          <storeAs>enemyFaction</storeAs>
+          <storeTemporaryAs>faction_temporary</storeTemporaryAs>
+          <storeCorporateDescAs>factionDescriptor</storeCorporateDescAs>
+          <storeColoredNameAs>coloredFactionName</storeColoredNameAs>
+          <siteType>ClothesMaking</siteType>
+        </li>
+
+        
+        <li Class="MiningOutpost.QuestNode_UniversalSafeTileFinder">
+          <storeAs>siteTile</storeAs>
+          <minDistance>3</minDistance>
+          <maxDistance>28</maxDistance>
+        </li>
+
+        <li Class="QuestNode_AddToList">
+          <name>sitePartDefs</name>
+          <value>ClothesMakingOutpost</value>
+        </li>
+
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$enemyFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+
+        <li Class="QuestNode_GenerateSite">
+          <sitePartsParams>$sitePartsParams</sitePartsParams>
+          <tile>$siteTile</tile>
+          <faction>$enemyFaction</faction>
+          <storeAs>site</storeAs>
+        </li>
+
+        <li Class="QuestNode_SpawnWorldObjects">
+          <worldObjects>$site</worldObjects>
+        </li>
+
+        
+        <li Class="QuestNode_WorldObjectTimeout">
+          <worldObject>$site</worldObject>
+          <isQuestTimeout>true</isQuestTimeout>
+          <delayTicks>$(randInt(15,30)*60000)</delayTicks>
+          <inSignalDisable>site.MapGenerated</inSignalDisable>
+          <destroyOnCleanup>true</destroyOnCleanup>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>Quest expired: [resolvedQuestName]</label>
+                <text>The textile workshop operated by [enemyFaction_name] has packed up their looms and moved on. The quest [resolvedQuestName] has expired.</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        
+        <li Class="QuestNode_Signal">
+          <inSignal>site.Destroyed</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>Quest failed: [resolvedQuestName]</label>
+                <text>After being discovered, the tailors from [enemyFaction_name] have fled with their finest garments. The quest [resolvedQuestName] has ended.</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        
+        <li Class="QuestNode_Signal">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+                <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+              </li>
+              <li Class="QuestNode_CampLootReward" />
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_End">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+        <li Class="QuestNode_NoWorldObject">
+          <worldObject>$site</worldObject>
+          <node Class="QuestNode_End">
+            <outcome>Fail</outcome>
+          </node>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <SitePartDef>
+    <defName>ClothesMakingOutpost</defName>
+    <label>clothes making outpost</label>
+    <description>A fortified textile and tailoring facility. It will expire in time. Until then, you can raid it if you wish.</description>
+    <workerClass>MiningOutpost.SitePartWorker_ExpandedOutpost</workerClass>
+    <siteTexture>World/WorldObjects/Sites/Outpost</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Sites/WorkSite</expandingIconTexture>
+    <applyFactionColorToSiteTexture>true</applyFactionColorToSiteTexture>
+    <showFactionInInspectString>true</showFactionInInspectString>
+    <requiresFaction>true</requiresFaction>
+    <considerEnteringAsAttack>true</considerEnteringAsAttack>
+    <gravShipsCanLandOn>true</gravShipsCanLandOn>
+    <approachOrderString>Attack {0}</approachOrderString>
+    <approachingReportString>Attacking {0}.</approachingReportString>
+    <wantsThreatPoints>true</wantsThreatPoints>
+    <minThreatPoints>350</minThreatPoints>
+    <tags>
+      <li>ClothesMakingOutpost</li>
+    </tags>
+  </SitePartDef>
+
+</Defs>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  
+  <ThingDef>
+    <defName>Filth_Dye</defName>
+    <thingClass>MiningOutpost.FilthRandomDye</thingClass>
+    <label>dye spawner</label>
+    <description>Layout helper that spawns random colored dye.</description>
+    <category>Filth</category>
+    <selectable>false</selectable>
+    <useHitPoints>false</useHitPoints>
+    <altitudeLayer>Filth</altitudeLayer>
+    <graphicData>
+      <texPath>Things/Filth/Grainy</texPath>
+      <graphicClass>Graphic_Cluster</graphicClass>
+      <color>(180,40,40,90)</color>
+    </graphicData>
+  </ThingDef>
+
+  
+
+  <ThingDef ParentName="BaseFilth">
+    <defName>Filth_DyeRed</defName>
+    <label>red dye</label>
+    <description>A splotch of spilled red dye.</description>
+    <graphicData>
+      <texPath>Things/Filth/Grainy</texPath>
+      <color>(185,35,35,90)</color>
+    </graphicData>
+    <filth>
+      <placementMask><li>Terrain</li></placementMask>
+      <disappearsInDays>45~50</disappearsInDays>
+      <cleaningWorkToReduceThickness>35</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Dirt</cleaningSound>
+    </filth>
+    <statBases>
+      <Beauty>-3</Beauty>
+      <Cleanliness>-2</Cleanliness>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseFilth">
+    <defName>Filth_DyeGreen</defName>
+    <label>green dye</label>
+    <description>A splotch of spilled green dye.</description>
+    <graphicData>
+      <texPath>Things/Filth/Grainy</texPath>
+      <color>(35,160,45,90)</color>
+    </graphicData>
+    <filth>
+      <placementMask><li>Terrain</li></placementMask>
+      <disappearsInDays>45~50</disappearsInDays>
+      <cleaningWorkToReduceThickness>35</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Dirt</cleaningSound>
+    </filth>
+    <statBases>
+      <Beauty>-3</Beauty>
+      <Cleanliness>-2</Cleanliness>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseFilth">
+    <defName>Filth_DyeBlue</defName>
+    <label>blue dye</label>
+    <description>A splotch of spilled blue dye.</description>
+    <graphicData>
+      <texPath>Things/Filth/Grainy</texPath>
+      <color>(40,65,190,90)</color>
+    </graphicData>
+    <filth>
+      <placementMask><li>Terrain</li></placementMask>
+      <disappearsInDays>45~50</disappearsInDays>
+      <cleaningWorkToReduceThickness>35</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Dirt</cleaningSound>
+    </filth>
+    <statBases>
+      <Beauty>-3</Beauty>
+      <Cleanliness>-2</Cleanliness>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseFilth">
+    <defName>Filth_DyePurple</defName>
+    <label>purple dye</label>
+    <description>A splotch of spilled purple dye.</description>
+    <graphicData>
+      <texPath>Things/Filth/Grainy</texPath>
+      <color>(150,35,175,90)</color>
+    </graphicData>
+    <filth>
+      <placementMask><li>Terrain</li></placementMask>
+      <disappearsInDays>45~50</disappearsInDays>
+      <cleaningWorkToReduceThickness>35</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Dirt</cleaningSound>
+    </filth>
+    <statBases>
+      <Beauty>-3</Beauty>
+      <Cleanliness>-2</Cleanliness>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseFilth">
+    <defName>Filth_DyeCyan</defName>
+    <label>cyan dye</label>
+    <description>A splotch of spilled cyan dye.</description>
+    <graphicData>
+      <texPath>Things/Filth/Grainy</texPath>
+      <color>(25,165,175,90)</color>
+    </graphicData>
+    <filth>
+      <placementMask><li>Terrain</li></placementMask>
+      <disappearsInDays>45~50</disappearsInDays>
+      <cleaningWorkToReduceThickness>35</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Dirt</cleaningSound>
+    </filth>
+    <statBases>
+      <Beauty>-3</Beauty>
+      <Cleanliness>-2</Cleanliness>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseFilth">
+    <defName>Filth_DyeYellow</defName>
+    <label>yellow dye</label>
+    <description>A splotch of spilled yellow dye.</description>
+    <graphicData>
+      <texPath>Things/Filth/Grainy</texPath>
+      <color>(210,180,25,90)</color>
+    </graphicData>
+    <filth>
+      <placementMask><li>Terrain</li></placementMask>
+      <disappearsInDays>45~50</disappearsInDays>
+      <cleaningWorkToReduceThickness>35</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Dirt</cleaningSound>
+    </filth>
+    <statBases>
+      <Beauty>-3</Beauty>
+      <Cleanliness>-2</Cleanliness>
+    </statBases>
+  </ThingDef>
+
+</Defs>

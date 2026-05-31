@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Worksites Expanded Github</name>
+  <author>godsfathermixtape</author>
+  <packageId>godsfathermixtape.worksitesexpandedgithub</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>BECOME PIRATES! You’ve built your great weapons and now you need some innocent workers to test them on, maybe you need the materials to build them, or perhaps your have an appetite for destruction that needs to be satiated. Worksites expanded adds lots of unique settlements to explore, attack or negotiate with. Settle in the ruins and repurpose the worksite as your new pirate headquarters.</description>
+  <modDependencies>
+    <li>
+      <packageId>oskarpotocki.vanillafactionsexpanded.core</packageId>
+      <displayName>Vanilla Expanded Framework</displayName>
+	<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2023507013</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>oskarpotocki.vanillafactionsexpanded.core</li>
+	<li>vanillaexpanded.vfepropsanddecor</li>
+  </loadAfter>
+</ModMetaData>
